@@ -1,2 +1,5 @@
 # sys files
 .DS_Store
+
+# local vsc
+**/.vscode
