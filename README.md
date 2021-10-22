@@ -1,2 +1,2 @@
 # MO
-crush.
+crush then put thru chhalni.
