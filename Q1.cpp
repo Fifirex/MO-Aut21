@@ -34,7 +34,7 @@ int main() {
     cout << "A) The mass mean diamater is " << mass_mean_diameter << " mm" << endl;
     cout << "B) The volume mean diameter is " << volume_mean_diameter << " mm" << endl;
     cout << "C) The volume surface mean diameter is " << volume_surface_mean_diameter << " mm" << endl;
-    cout << "D) The average specific surface area is " << average_specific_surface_area << " square mm/kg" << endl;
+    cout << "D) The average specific surface area is " << average_specific_surface_area << " square m/kg" << endl;
     return 0;
 }
 
