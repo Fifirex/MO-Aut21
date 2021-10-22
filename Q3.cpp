@@ -20,7 +20,7 @@ int main() {
 
     // part (B) //
     double k_k; //Kick's constant
-    // work_bond = k_k*ln(df/dp)
+    // work_kick = k_k*ln(df/dp)
     k_k = initial_power/(log(d_f/d_p));
     final_power =  (k_b)*log(d_f/d_pnew);
     cout << "Ans (b): The power consumption using Kick's Law is " << final_power << "Hp." << endl;
