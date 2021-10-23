@@ -3,3 +3,4 @@
 
 # local vsc
 **/.vscode
+**/*.dSYM
