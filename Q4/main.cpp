@@ -13,20 +13,22 @@ int rate = 1; // ton/hr
 int Pt = 15; // kW
 
 float Df = 50.8;            // mm
-float Dp1 = 0.878535083;    // mm
-float Dp2 = 0.061111111;    // mm
+float Dp1 = 0;              // mm
+float Dp2 = 0;              // mm
 
 float P1 = 0; // kW
 float P2 = 0; // kW
 
 void prep_cumulative() { 
-    for (int k = 1; k <= 3; k+=2) {
-        for (int i = 0; i < 5; ++i) {
-            for (int j = i + 1; j < 5; j++) {
-                given_data[i][k] += given_data[j][k];
-            }
-        }
-    }
+    for (int i = 0; i<5; i++) 
+        Dp1 += (given_data[i][1]/given_data[i][0]);
+    Dp1 = 1/Dp1;
+    for (int i = 0; i<5; i++)
+        Dp2 += given_data[i][3]/given_data[i][2];
+    Dp2 = 1/Dp2;
+    
+    cout<<"\n Volume surface mean diameter of product from grinder 1 : "<<Dp1<<" mm";
+    cout<<"\n Volume surface mean diameter of product from grinder 2 : "<<Dp2<<" mm";
 }
 
 void rettinger() {
@@ -35,7 +37,7 @@ void rettinger() {
     P1 = rate*Kr*(1/Dp1 - 1/Df);
     P2 = rate*Kr*(1/Dp2 - 1/Df);
 
-    cout<<"\n Rettinger's Law";
+    cout<<"\n\n Rettinger's Law";
     cout<<"\n Power consumed by first grinder  : "<<P1<<" kW";
     cout<<"\n Power consumed by second grinder : "<<P2<<" kW";
 }
@@ -46,7 +48,7 @@ void kick() {
     P1 = rate*Kk*(1/log(Dp1) - 1/log(Df));
     P2 = rate*Kk*(1/log(Dp2) - 1/log(Df));
     
-    cout<<"\n Kick's Law";
+    cout<<"\n\n Kick's Law";
     cout<<"\n Power consumed by first grinder  : "<<P1<<" kW";
     cout<<"\n Power consumed by second grinder : "<<P2<<" kW";
 }
@@ -57,20 +59,16 @@ void bond() {
     P1 = rate*Kb*(1/sqrt(Dp1) - 1/sqrt(Df));
     P2 = rate*Kb*(1/sqrt(Dp2) - 1/sqrt(Df));
 
-    cout<<"\n Bond's Law";
+    cout<<"\n\n Bond's Law";
     cout<<"\n Power consumed by first grinder  : "<<P1<<" kW";
     cout<<"\n Power consumed by second grinder : "<<P2<<" kW";
 }
 
 int main() {
     prep_cumulative();
-    for (int i = 0; i<5; i++) {
-        for (int j = 0; j<4; j++)
-            cout << given_data[i][j]<<" ";
-        cout<<endl;
-    }
+
     rettinger();
-    bond();
     kick();
+    bond();
     return 0;
 }
