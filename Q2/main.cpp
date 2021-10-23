@@ -6,7 +6,7 @@ float given_data[3][13] = {{0.0107,0.0235,0.0672,0.0864,0.1087,0.1759,0.1397,0.1
                             {0.018,0.033,0.088,0.112,0.142,0.229,0.182,0.104,0.065,0.025,0.002,0,0},
                             {0,0,0,0,0,0,0.1023,0.1195,0.2198,0.2391,0.1877,0.1427,0.0912}};
 
-void prep_cumulative() { 
+void prep_cumulative() {
     for (int k = 0; k < 3; k++) {
         for (int i = 0; i < 13; ++i) {
             for (int j = i + 1; j < 13; j++) {
@@ -21,8 +21,8 @@ void main_calc(int col) {
     float yF = 1 - given_data[0][col + 1];
     float yP = 1 - given_data[1][col + 1];
     float yR = 1 - given_data[2][col + 1];
-    float recovery=yP/yF;
-    float rejection=1-((1-yP)/(1-yF));
+    float recovery=((yF-yR)/(yP-yR))*(yP/yF);
+    float rejection=1-(((yF-yR)/(yP-yR))*((1-yP)/(1-yF)));
     float effectiveness=recovery*rejection;
     cout<<"\n Recovery : "<<recovery*100<<"%\n Rejection : "<<rejection*100
     <<"%\n Effectiveness : "<<effectiveness*100<<"%";
