@@ -29,7 +29,7 @@ int main() {
     }
     volume_mean_diameter = pow((1/volume_mean_diameter), (1.0/3));
     volume_surface_mean_diameter = 1/volume_surface_mean_diameter;
-    average_specific_surface_area *= 6/(density*sphericity);
+    average_specific_surface_area *= 1000*6/(density*sphericity);
     // cout << cfrac;
     cout << "A) The mass mean diamater is " << mass_mean_diameter << " mm" << endl;
     cout << "B) The volume mean diameter is " << volume_mean_diameter << " mm" << endl;
