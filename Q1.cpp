@@ -7,7 +7,7 @@ int main() {
  //   density /= pow(10, 9); // in kg/cubic-mm
     vector<int> mesh_number{4, 6, 8, 10, 14, 20, 28, 35, 48, 65, 100, 150, 200};
     vector<double> mass_frac{0., 0.0251, 0.1250, 0.3207, 0.2570, 0.1590, 0.0538, 0.0210, 0.0102, 0.0077, 0.0058, 0.0041, 0.0031};
-    vector<double> width{4760., 3360., 2380., 2000., 1410., 840., 595., 500., 297., 210., 149., 105., 74., }; 
+    vector<double> width{4760., 3360., 2380., 2000., 1410., 840., 589., 500., 297., 210., 149., 105., 74., }; 
     //Pan 0.0075
     double cfrac = 0; //cumulative fraction
     double d_avg;
