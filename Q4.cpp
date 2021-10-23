@@ -32,10 +32,10 @@ void prep_cumulative() {
 }
 
 void rettinger() {
-    float Kr = Pt/((1/Dp1 + 1/Dp2 - 2/Df)*rate); 
+    float Kr = Pt/((1/Dp2 - 1/Df)*rate); 
     
     P1 = rate*Kr*(1/Dp1 - 1/Df);
-    P2 = rate*Kr*(1/Dp2 - 1/Df);
+    P2 = rate*Kr*(1/Dp2 - 1/Dp1);
 
     cout<<"\n\n Rettinger's Law";
     cout<<"\n Power consumed by first grinder  : "<<P1<<" kW";
@@ -43,10 +43,10 @@ void rettinger() {
 }
 
 void kick() {
-    float Kk = Pt/((1/log(Dp1) + 1/log(Dp2) - 2/log(Df))*rate);
+    float Kk = Pt/((log(Dp2/Df))*rate);
 
-    P1 = rate*Kk*(1/log(Dp1) - 1/log(Df));
-    P2 = rate*Kk*(1/log(Dp2) - 1/log(Df));
+    P1 = rate*Kk*(log(Dp1/Df));
+    P2 = rate*Kk*(log(Dp2/Dp1));
     
     cout<<"\n\n Kick's Law";
     cout<<"\n Power consumed by first grinder  : "<<P1<<" kW";
@@ -54,10 +54,10 @@ void kick() {
 }
 
 void bond() {
-    float Kb = Pt/((1/sqrt(Dp1) + 1/sqrt(Dp2) - 2/sqrt(Df))*rate);
+    float Kb = Pt/((1/sqrt(Dp2) - 1/sqrt(Df))*rate);
 
     P1 = rate*Kb*(1/sqrt(Dp1) - 1/sqrt(Df));
-    P2 = rate*Kb*(1/sqrt(Dp2) - 1/sqrt(Df));
+    P2 = rate*Kb*(1/sqrt(Dp2) - 1/sqrt(Dp1));
 
     cout<<"\n\n Bond's Law";
     cout<<"\n Power consumed by first grinder  : "<<P1<<" kW";
